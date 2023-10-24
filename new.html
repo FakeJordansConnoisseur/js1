@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+    <script>
+        // Function to update and display the countdown
+        function updateCountdown(countdown) {
+            // Display the current countdown value on the HTML page
+            document.getElementById("countdownDisplay").textContent = countdown;
+
+            // Decrement the countdown by 1
+            countdown--;
+
+            // Check if the countdown has reached 0
+            if (countdown >= 0) {
+                // Set a timeout to call this function again after 1 second (1000 milliseconds)
+                setTimeout(function () {
+                    updateCountdown(countdown);
+                }, 1000);
+            } else {
+                document.getElementById("countdownDisplay").textContent = "Countdown Expired!";
+            }
+        }
+
+        // Call the function to start the countdown with an initial value of 10 seconds
+        updateCountdown(10);
+    </script>
+</head>
+<body>
+    <h2>Countdown Timer</h2>
+    <p>Countdown: <span id="countdownDisplay">10</span> seconds</p>
+</body>
+</html>
